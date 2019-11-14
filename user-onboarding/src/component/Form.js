@@ -1,4 +1,8 @@
-import React from 'react';
+import React, {
+    useState,
+    useEffect
+} from 'react';
+import Card from './Card'
 import { withFormik, Form, Field,  ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -13,12 +17,30 @@ import axios from 'axios';
 //- A Submit button to send our form data to the server.
 
 
-function TestingForm(props) {
+function TestingForm(props, status) {
  console.log(props)
+
+
+ const [users, setUsers] = useState([]);
+    console.log(users);
+
+    useEffect(() => {
+        if (status) {
+            setUsers([...users, status]);
+        }
+
+        
+    }, [status]);
+
+
+
+
+
  return (
     <div className="TestingForms">
       <Form>
           <h1 className="Header">User Form</h1>
+          
         <ErrorMessage
           name="name"
           render={msg => <div className="error">{msg}</div>}
@@ -73,6 +95,8 @@ function TestingForm(props) {
 
 
 
+
+
 const TestingFormWithFormik = withFormik({
   mapPropsToValues() {
     return {
@@ -94,7 +118,7 @@ const TestingFormWithFormik = withFormik({
 
   handleSubmit(values, tools) {
     // console.log(args);
-    console.log(tools);
+    //console.log(tools);
     
     axios.post("https://reqres.in/api/users/", values)
       .then(res => {
@@ -104,6 +128,7 @@ const TestingFormWithFormik = withFormik({
       .catch(err => {
         console.log(err);
       });
+
   }
 })(TestingForm);
 
