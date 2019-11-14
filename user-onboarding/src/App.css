@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+html,
+body,
+.TestingForms,
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(226, 215, 215);
+  color: silver;
+}
+
+.TestingForms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TestingForms form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TestingForms form label{
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.TestingForms form input,
+.TestingForms form select
+
+{
+  margin-bottom: 25px;
+}
+
+.Header {
+  text-decoration: underline solid white;
+}
+
+.error {
+  color: silver;
+  font-size: 12px;
+  font-weight: 600;
+}
