@@ -18,12 +18,14 @@ function TestingForm(props) {
  return (
     <div className="TestingForms">
       <Form>
+          <h1 className="Header">User Form</h1>
         <ErrorMessage
           name="name"
           render={msg => <div className="error">{msg}</div>}
         />
-        <label>
+         <label className="Name"> 
          Name
+         <br></br>
           <Field
             type="text"
             name="name"
@@ -36,7 +38,8 @@ function TestingForm(props) {
           render={msg => <div className="error">{msg}</div>}
         />
           <label>
-         Email
+          Email
+          <br></br>
           <Field
             type="text"
             name="email"
@@ -49,7 +52,9 @@ function TestingForm(props) {
           render={msg => <div className="error">{msg}</div>}
         />
         <label>
+        
           Password
+          <br></br>
           <Field
             type="password"
             name="password"
